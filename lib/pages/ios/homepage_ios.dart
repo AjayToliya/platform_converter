@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../model/grocery_item_tile.dart';
+
+import '../../model/dataofchats.dart';
 import '../../provider/Platform_Switch.dart';
 import '../../provider/navigator_provader.dart'; // Import the provider
 
@@ -20,14 +21,17 @@ class _HomepageIosState extends State<HomepageIos> {
         itemCount: chatItems.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-            child: CupertinoListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage(chatItems[index].imagePath),
+            padding: EdgeInsets.only(bottom: 5, top: 5),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              child: CupertinoListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(chatItems[index].imagePath),
+                ),
+                title: Text(chatItems[index].name),
+                subtitle: Text(chatItems[index].message),
+                trailing: Text(chatItems[index].time),
               ),
-              title: Text(chatItems[index].name),
-              subtitle: Text(chatItems[index].message),
-              trailing: Text(chatItems[index].time),
             ),
           );
         },
@@ -102,11 +106,12 @@ class CupertinoListTile extends StatelessWidget {
   final Widget subtitle;
   final Widget trailing;
 
-  CupertinoListTile(
-      {required this.leading,
-      required this.title,
-      required this.subtitle,
-      required this.trailing});
+  CupertinoListTile({
+    required this.leading,
+    required this.title,
+    required this.subtitle,
+    required this.trailing,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +125,7 @@ class CupertinoListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 title,
-                SizedBox(height: 2),
+                SizedBox(height: 10),
                 subtitle,
               ],
             ),

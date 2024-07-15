@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../model/grocery_item_tile.dart';
+import '../../model/dataofchats.dart';
 import '../../provider/Platform_Switch.dart';
 import '../../provider/navigator_provader.dart';
 
@@ -15,17 +15,12 @@ class HomepageAndriod extends StatefulWidget {
 class _HomepageAndriodState extends State<HomepageAndriod> {
   @override
   Widget build(BuildContext context) {
-    // List of screens corresponding to each tab
     final List<Widget> screens = [
       ListView.builder(
         itemCount: chatItems.length,
         itemBuilder: (context, index) {
           return ListTile(
             leading: FlutterLogo(),
-            // CircleAvatar(
-
-            // backgroundImage: AssetImage(chatItems[index].imagePath),
-            // ),
             title: Text(chatItems[index].name),
             subtitle: Text(chatItems[index].message),
             trailing: Text(chatItems[index].time),
@@ -43,9 +38,6 @@ class _HomepageAndriodState extends State<HomepageAndriod> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Drawer(
-          surfaceTintColor: Colors.red,
-        ),
         title: Text(
           'Platform Convertor',
           style: TextStyle(
@@ -63,6 +55,8 @@ class _HomepageAndriodState extends State<HomepageAndriod> {
           ),
         ],
       ),
+      drawer: Drawer(),
+      // floatingActionButton: ,
       body: Consumer<BottomNavigationProvider>(
         builder: (context, provider, child) {
           return screens[provider.selectedIndex];
