@@ -15,3 +15,4 @@ A mobile e-commerce application built with Flutter that provides a seamless shop
 Provider package for state management (consider adding more specific features if applicable)
 
 
+![ajay](https://github.com/user-attachments/assets/1063411a-5a6c-4f27-8952-e73ce97e15e4)
